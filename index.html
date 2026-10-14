@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="apsmkimo is an independent Android developer. TetraVideoPlayer is a multi-pane player for local videos.">
+  <title>apsmkimo — Android developer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ea;
+      --ink: #1c1915;
+      --muted: #5e574e;
+      --line: #ddd6c8;
+      --card: #fffcf7;
+      --accent: #8a3d24;
+      --accent-ink: #fffaf6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a { color: var(--accent); }
+    a:hover { text-decoration-thickness: 2px; }
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    header { margin-bottom: 2rem; }
+    h1 {
+      font-family: Georgia, "Iowan Old Style", "PMingLiU", serif;
+      font-size: 2.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.35rem;
+    }
+    .role { margin: 0; color: var(--muted); }
+    .zh { display: block; font-size: 0.95rem; }
+    h2 {
+      font-family: Georgia, "Iowan Old Style", "PMingLiU", serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.15rem 1.15rem 1.25rem;
+    }
+    .card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.25rem;
+    }
+    .card p { margin: 0.4rem 0; }
+    .pkg {
+      font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+      font-size: 0.86rem;
+      color: var(--muted);
+      word-break: break-all;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.55rem 0.95rem;
+      min-height: 44px;
+      line-height: 1.3;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+    .btn-primary:hover { background: #6f301c; }
+    .btn-ghost {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: transparent;
+    }
+    footer {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+    footer p { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>apsmkimo</h1>
+      <p class="role">Independent Android developer<span class="zh">獨立 Android 開發者</span></p>
+    </header>
+
+    <main>
+      <h2>Apps <span class="zh" style="font-weight:400;color:var(--muted)">應用程式</span></h2>
+      <article class="card">
+        <h3>TetraVideoPlayer</h3>
+        <p>An Android player for watching local videos in more than one pane at a time. You choose the files on your device; playback stays on the phone.</p>
+        <p class="zh" style="color:var(--muted)">Android 本機多窗格影片播放器。由你在裝置上選取影片，播放留在手機上。</p>
+        <p class="pkg">com.apsmkimo.tetravideoplayer</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.apsmkimo.tetravideoplayer">Google Play</a>
+          <a class="btn btn-ghost" href="privacy.html">Privacy policy <span class="zh">隱私權政策</span></a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <h2>Contact <span class="zh" style="font-weight:400;color:var(--muted)">聯絡</span></h2>
+      <p><a href="mailto:apsmkimo@gmail.com">apsmkimo@gmail.com</a></p>
+      <p><a href="https://github.com/apsmkimo">github.com/apsmkimo</a></p>
+    </footer>
+  </div>
+</body>
+</html>

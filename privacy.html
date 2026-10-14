@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for TetraVideoPlayer by apsmkimo. Effective 2026-10-14.">
+  <title>Privacy policy — TetraVideoPlayer</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ea;
+      --ink: #1c1915;
+      --muted: #5e574e;
+      --line: #ddd6c8;
+      --card: #fffcf7;
+      --accent: #8a3d24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    .back { font-size: 0.95rem; }
+    h1 {
+      font-family: Georgia, "Iowan Old Style", "PMingLiU", serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0.8rem 0 0.35rem;
+    }
+    .meta { color: var(--muted); margin: 0 0 1.25rem; }
+    h2 {
+      font-family: Georgia, "Iowan Old Style", "PMingLiU", serif;
+      font-size: 1.15rem;
+      margin: 1.6rem 0 0.4rem;
+    }
+    p, li { margin: 0.45rem 0; }
+    ul { padding-left: 1.2rem; }
+    code {
+      font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">apsmkimo</a>
+    <h1>Privacy policy</h1>
+    <p class="meta">TetraVideoPlayer · package <code>com.apsmkimo.tetravideoplayer</code><br>Effective date: 2026-10-14</p>
+
+    <p>This policy describes how the Android app TetraVideoPlayer, published by the independent developer apsmkimo, handles information. It reflects the app as implemented in the <a href="https://github.com/apsmkimo/TetraVideoPlayerAD">TetraVideoPlayerAD</a> source: a player for local, user-selected video files, with Google AdMob ads and an optional Google Play purchase that removes those ads.</p>
+
+    <h2>Videos stay on your device</h2>
+    <p>TetraVideoPlayer plays video files you pick on the device. It reads the on-device media library through Android MediaStore (file name, duration, folder, and a content URI) so you can browse folders and open a file. Playback uses that local URI. The app itself does not upload your videos, and the developer does not operate a server that receives video files or video content.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><strong>Photos and videos / storage.</strong> On Android 13 and later the app requests <code>READ_MEDIA_VIDEO</code>. On older versions it requests <code>READ_EXTERNAL_STORAGE</code> (limited to Android 12 and below). These permissions are used to list and play videos you select.</li>
+      <li><strong>Internet.</strong> <code>INTERNET</code> is used to load ads from Google AdMob and to talk to Google Play Billing.</li>
+      <li><strong>Billing.</strong> <code>com.android.vending.BILLING</code> is used for the one-time in-app purchase that removes ads.</li>
+    </ul>
+
+    <h2>Information stored on the device</h2>
+    <p>The app keeps a few preferences in on-device SharedPreferences. Playback settings (screen rotation, buffering, screen margin, and per-pane toolbar position, loop, decode mode, contrast, and sharpness) are stored under <code>tetravideoplayer_settings</code>. Whether ads have been removed is stored under <code>tetra_ads</code>. The layout you pick is for the current session and is not kept as your saved layout. Android backup rules exclude these SharedPreferences from cloud backup and device transfer. Uninstalling the app removes them from the device.</p>
+    <p>The app does not ask you to create an account.</p>
+
+    <h2>Advertising (Google AdMob)</h2>
+    <p>The free version shows ads through the Google Mobile Ads SDK, dependency <code>com.google.android.gms:play-services-ads</code>. The app calls <code>MobileAds.initialize</code> and can show a banner and an interstitial. Google AdMob, as part of serving and measuring ads, collects device identifiers, including the advertising ID, along with other data described in Google’s policies.</p>
+    <p>After you buy Remove Ads, or after Play restores that purchase, the app turns banners and interstitials off.</p>
+    <p>You can limit ad personalization in your device settings (Google Settings → Ads, or reset your advertising ID). How Google uses this information is covered by:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a></li>
+      <li><a href="https://policies.google.com/technologies/ads">How Google uses cookies and advertising</a></li>
+      <li><a href="https://support.google.com/admob/answer/6128543">Google AdMob policies</a></li>
+    </ul>
+
+    <h2>Purchases (Google Play Billing)</h2>
+    <p>Remove Ads is a one-time in-app product (<code>remove_ads</code>) processed by Google Play Billing. Google Play handles the payment. The developer does not receive your full payment card number. When the billing client is ready, the app asks Play whether you already own the product so a reinstall can restore ad removal, and it stores that result on the device.</p>
+    <p>Google’s handling of purchase data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and in <a href="https://developer.android.com/google/play/billing">Google Play Billing</a>.</p>
+
+    <h2>Third parties</h2>
+    <p>The developer does not sell personal information. The app does not include a separate analytics or crash-reporting SDK. The third-party services the app does use are Google AdMob and Google Play Billing. Those services receive data under Google’s own policies, linked above, which you should read because they—not this developer—control that processing.</p>
+
+    <h2>Children</h2>
+    <p>TetraVideoPlayer is a general-audience tool for playing videos you already have. It is not directed at children under 13, and the developer does not knowingly collect personal information from children.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the updated text will be posted on this page with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:apsmkimo@gmail.com">apsmkimo@gmail.com</a></p>
+  </div>
+</body>
+</html>

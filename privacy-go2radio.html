@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for Go2Radio Live by A.P.S.Mobile. Effective 2026-10-19.">
+  <title>Privacy policy — Go2Radio Live</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ea;
+      --ink: #1c1915;
+      --muted: #5e574e;
+      --line: #ddd6c8;
+      --card: #fffcf7;
+      --accent: #8a3d24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    .back { font-size: 0.95rem; }
+    h1 {
+      font-family: Georgia, "Iowan Old Style", "PMingLiU", serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0.8rem 0 0.35rem;
+    }
+    .meta { color: var(--muted); margin: 0 0 1.25rem; }
+    h2 {
+      font-family: Georgia, "Iowan Old Style", "PMingLiU", serif;
+      font-size: 1.15rem;
+      margin: 1.6rem 0 0.4rem;
+    }
+    p, li { margin: 0.45rem 0; }
+    ul { padding-left: 1.2rem; }
+    code {
+      font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">apsmkimo</a>
+    <h1>Privacy policy</h1>
+    <p class="meta">Go2Radio Live · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-19</p>
+
+    <!-- SMCPKG_SUPPORT>>>Cursor005 -->
+    <!-- <p>This policy describes how the Android app Go2Radio Live, published by A.P.S.Mobile (Wayne Tseng), handles information. It reflects the app as implemented in the <a href="https://github.com/apsmkimo/Go2radiolive-android">Go2radiolive-android</a> source: an internet radio and podcast player. Station catalogs come from the Radio-Browser API. Podcast catalogs come from public Apple charts, an iTunes lookup, and the podcast’s own RSS feed. Audio is then streamed from the third-party broadcaster or podcast host named in that catalog. The app shows Google AdMob banner and native ads only after Google’s consent check allows them.</p> -->
+    <p>This policy describes how the Android app Go2Radio Live, published by A.P.S.Mobile (Wayne Tseng), handles information. It reflects the app as implemented in the <a href="https://github.com/apsmkimo/Go2radiolive-android">Go2radiolive-android</a> source (version 1.5.0): an internet radio and podcast player. Station catalogs come from the Radio-Browser API. Podcast catalogs come from public Apple charts, an iTunes lookup, and the podcast’s own RSS feed. Audio is then streamed from the third-party broadcaster or podcast host named in that catalog. The app shows Google AdMob banner, native, and app-open ads only after Google’s consent check allows them.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor005 -->
+    <p>The app does not ask you to create an account. The developer does not collect personal data such as your name, email address, phone number, contacts, or precise location, and does not operate a server that receives data from the app.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><strong>Internet.</strong> <code>INTERNET</code> is used to load station and podcast catalogs, stream audio, load station images, and talk to Google AdMob and Google’s consent service.</li>
+      <li><strong>Network state.</strong> <code>ACCESS_NETWORK_STATE</code> is declared so the ads SDK and playback can tell whether a connection is available. The app does not store Wi-Fi names or cell identifiers.</li>
+      <li><strong>Playback in the background.</strong> <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, and <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> keep a media session running with a playback notification while audio plays.</li>
+      <!-- SMCPKG_SUPPORT>>>Cursor006 -->
+      <!-- <li><strong>Notifications.</strong> On Android 13 and later the app requests <code>POST_NOTIFICATIONS</code> so that playback notification can be shown.</li> -->
+      <li><strong>Notifications.</strong> On Android 13 and later the app requests <code>POST_NOTIFICATIONS</code> so the playback notification and the wake-up alarm notification can be shown.</li>
+      <li><strong>Boot.</strong> <code>RECEIVE_BOOT_COMPLETED</code> lets the app register the saved wake-up alarm again after the device restarts. The same receiver also runs when the clock time or time zone changes, so the next alarm stays aligned with the clock.</li>
+      <li><strong>Exact alarms.</strong> <code>SCHEDULE_EXACT_ALARM</code> schedules the wake-up alarm for the clock time you set. On Android 12 and later, an exact alarm runs only if you allow alarms and reminders for this app. If that is off, the app schedules a non-exact alarm instead, which may fire late. The app does not read your other alarms.</li>
+      <!-- SMCPKG_SUPPORT<<<Cursor006 -->
+    </ul>
+    <p>The manifest does not request location, storage, photos, contacts, microphone, camera, or phone-state permissions.</p>
+
+    <h2>Information stored on the device</h2>
+    <!-- SMCPKG_SUPPORT>>>Cursor007 -->
+    <!-- <p>Preferences are kept in on-device DataStore. Favorites are stored under <code>go2radio_favorites</code> as JSON of the stations you mark: station id, name, stream address, homepage, icon address, tags, country, and country code. Audio settings are stored under <code>go2radio_audio_settings</code>: whether the audio-panel button is shown, the four equalizer bands (bass, low, mid, high), left-right balance, voice enhancement, the spatial-audio mode (off, natural, surround, or orbit), and the orbit period, direction, and strength. The search box filters the list already on screen; that text is not saved and is not sent as a search query.</p> -->
+    <p>Preferences are kept in on-device DataStore. Favorites are stored under <code>go2radio_favorites</code> as JSON of the stations you mark: station id, name, stream address, homepage, icon address, tags, country, and country code. Audio settings are stored under <code>go2radio_audio_settings</code>: whether the audio-panel button is shown, the four equalizer bands (bass, low, mid, high), left-right balance, voice enhancement, the spatial-audio mode (off, natural, surround, or orbit), and the orbit period, direction, and strength. The search box filters the list already on screen; that text is not saved and is not sent as a search query.</p>
+    <p>The podcast country you pick is stored under <code>go2radio_podcast_region</code> as a two-letter storefront code (<code>storefront</code>). Choosing Automatic removes that value, and the app uses the device region described below. The country search in that picker filters a list on the device and is not sent as a query.</p>
+    <p>The wake-up alarm is stored under <code>go2radio_wake_alarm</code>: whether it is on, the hour and minute, the repeat days (an empty list means one time), the station to play, and a backup station. The last station you played is stored in the same file so the alarm can offer it. These are station records and a clock time, not an account. A one-time alarm turns itself off after it fires. Snooze waits ten minutes and keeps that station in the on-device alarm until it fires. The sleep timer (15, 30, 45, 60, or 90 minutes, a custom length from 1 to 240 minutes, or the end of the current podcast episode) is held in memory for the current session. It is not written to DataStore, and ending the app process clears it.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor007 -->
+    <!-- SMCPKG_SUPPORT>>>Cursor012 -->
+    <!-- <p>The manifest allows Android backup (<code>allowBackup</code> is true) and the project does not add rules that exclude these DataStore files, so a device backup or transfer may include them. Uninstalling the app removes them from the device. The developer does not receive them.</p> -->
+    <p>The manifest allows Android backup (<code>allowBackup</code> is true) and the project does not add rules that exclude these DataStore files or the app-open SharedPreferences, so a device backup or transfer may include them. Uninstalling the app removes them from the device. The developer does not receive them.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor012 -->
+
+    <h2>Advertising (Google AdMob)</h2>
+    <!-- SMCPKG_SUPPORT>>>Cursor008 -->
+    <!-- <p>The app shows ads through the Google Mobile Ads SDK, dependency <code>com.google.android.gms:play-services-ads</code>. It can show an anchored adaptive banner, and a native ad about every eight rows in the local station list, the world station list (including a search of that list), and the podcast list. It does not show interstitial or app-open ads. App measurement is delayed until the SDK is initialized, and <code>MobileAds.initialize</code> runs only when Google’s consent check says ads may be requested. If that check is false, or a native ad fails to load, the list does not leave an empty ad slot.</p> -->
+    <p>The app shows ads through the Google Mobile Ads SDK, dependency <code>com.google.android.gms:play-services-ads</code>. It can show an anchored adaptive banner, a native ad about every eight rows in the local station list, the world station list (including a search of that list), and the podcast list, and an app-open ad. It does not show interstitial ads. App measurement is delayed until the SDK is initialized, and <code>MobileAds.initialize</code> runs only when Google’s consent check says ads may be requested. If that check is false, or a native ad fails to load, the list does not leave an empty ad slot.</p>
+    <p>An app-open ad can appear on a cold start, if it finishes loading within about four seconds after consent and Mobile Ads initialization, and when you return to the app from the background. It is not shown while radio or podcast audio is playing or buffering, while the consent form is open, or over another full-screen ad. A loaded app-open ad expires after four hours, and the app waits at least four hours between shows. The time the last app-open ad was shown is stored on the device in SharedPreferences (<code>go2radio_app_open</code>). Starting a wake-up alarm skips the next app-open ad. The developer does not receive that timestamp.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor008 -->
+    <p>Google AdMob, as part of serving and measuring ads, collects device identifiers, including the advertising ID, along with other data described in Google’s policies. The app source does not read the advertising ID itself.</p>
+    <p>You can limit ad personalization in your device settings (Google Settings → Ads, or reset your advertising ID). How Google uses this information is covered by:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a></li>
+      <li><a href="https://policies.google.com/technologies/ads">How Google uses cookies and advertising</a></li>
+      <li><a href="https://support.google.com/admob/answer/6128543">Google AdMob policies</a></li>
+    </ul>
+
+    <h2>Ads consent (Google UMP)</h2>
+    <!-- SMCPKG_SUPPORT>>>Cursor009 -->
+    <!-- <p>On each launch the app updates consent with the Google User Messaging Platform (UMP). UMP decides whether a consent form is required. That includes the form Google shows for GDPR in the EEA and the UK. The request is not tagged for a user under the age of consent. Banner and native ads load only when UMP reports that the app can request ads.</p> -->
+    <p>On each launch the app updates consent with the Google User Messaging Platform (UMP). UMP decides whether a consent form is required. That includes the form Google shows for GDPR in the EEA and the UK. The request is not tagged for a user under the age of consent. Banner, native, and app-open ads load only when UMP reports that the app can request ads.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor009 -->
+    <p>When UMP reports that privacy options are required, Settings shows <strong>Privacy options</strong>. That row opens Google’s privacy-options form so you can change your ads choice. The row is hidden when UMP does not require it.</p>
+
+    <h2>Radio stations (Radio-Browser)</h2>
+    <p>Station, country, and tag lists come from the public Radio-Browser API at <code>https://de1.api.radio-browser.info/</code>. Requests send a User-Agent that names the app and its version. The app asks for stations by country code, the country list, tags, and stations by tag. When you play a station, the app calls Radio-Browser’s URL endpoint for that station id. That call counts a click with Radio-Browser and returns a stream address; if it fails, playback uses the stream address already included with the station. The stream itself is served by the broadcaster, not by the developer. A station icon, when one is listed, is loaded from the image address in the catalog.</p>
+
+    <h2>Podcasts</h2>
+    <!-- SMCPKG_SUPPORT>>>Cursor010 -->
+    <!-- <p>The podcast list is built from Apple’s public Marketing Tools podcast chart and from iTunes genre RSS feeds for the same country, then deduplicated on the device. Opening a show calls the iTunes Lookup API for that show’s RSS address, downloads the feed from the podcast publisher, and plays episode files from the addresses in the feed with the same on-device player used for radio. Apple and the podcast host receive those requests, including the country code and the app’s User-Agent. The developer does not receive what you play.</p> -->
+    <p>The podcast list is built from Apple’s public Marketing Tools podcast chart and from iTunes genre RSS feeds for the same country, then deduplicated on the device. On the podcast tab you can pick that country. The choice is saved on the device, as described above. Automatic uses the device region. Opening a show calls the iTunes Lookup API for that show’s RSS address, downloads the feed from the podcast publisher, and plays episode files from the addresses in the feed with the same on-device player used for radio. Apple and the podcast host receive those requests, including the country code and the app’s User-Agent. The developer does not receive what you play.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor010 -->
+
+    <h2>Region</h2>
+    <!-- SMCPKG_SUPPORT>>>Cursor011 -->
+    <!-- <p>To choose a default country, the app reads three values on the device, in order: the network country code, the SIM country code, then the country of the system locale. It keeps a two-letter country code and does not store it as a profile. That code is not sent to the developer. It is placed in the Radio-Browser and Apple catalog URLs so those services know which country’s list was requested. The app does not request location permission and does not read GPS coordinates, your phone number, or a device serial.</p> -->
+    <p>To choose a default country, the app reads three values on the device, in order: the network country code, the SIM country code, then the country of the system locale. It keeps a two-letter country code. That detected code is not stored as a profile and is not sent to the developer. It is placed in the Radio-Browser local-station URL, and in the Apple catalog URL when the podcast country is set to Automatic. A podcast country you pick is saved on the device and is used only for the Apple chart and iTunes lookup. The app does not request location permission and does not read GPS coordinates, your phone number, or a device serial.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor011 -->
+    <p>If no country code can be read, the local station list uses the United States. Taiwan stays Taiwan. Another country with no stations in the first response also falls back to the United States. Podcast charts use the United States chart when the regional chart fails or comes back empty.</p>
+
+    <h2>Third parties</h2>
+    <p>The developer does not sell personal information. The app does not include a separate analytics or crash-reporting SDK. Services the app does contact are Google AdMob, Google UMP, the Radio-Browser API, Apple’s chart and iTunes lookup endpoints, podcast RSS hosts, radio and podcast stream hosts, and image hosts for station or show artwork. Those parties receive the network request (including your IP address and the app’s User-Agent) under their own policies. Google’s policies are linked above. The developer does not control that processing.</p>
+
+    <h2>Children</h2>
+    <p>Go2Radio Live is a general-audience app for internet radio and podcasts. It is not directed at children under 13, and the developer does not knowingly collect personal information from children.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the updated text will be posted on this page with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:apsmkimo@gmail.com">apsmkimo@gmail.com</a></p>
+  </div>
+</body>
+</html>

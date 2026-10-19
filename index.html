@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="apsmkimo is an independent Android developer. TetraVideoPlayer is a multi-pane player for local videos.">
+  <!-- SMCPKG_SUPPORT>>>Cursor002 -->
+  <!-- <meta name="description" content="apsmkimo is an independent Android developer. TetraVideoPlayer is a multi-pane player for local videos."> -->
+  <meta name="description" content="apsmkimo is an independent Android developer. TetraVideoPlayer plays local videos. Go2Radio Live plays internet radio and podcasts.">
+  <!-- SMCPKG_SUPPORT<<<Cursor002 -->
   <title>apsmkimo — Android developer</title>
   <style>
     :root {
@@ -53,6 +56,9 @@
       border-radius: 12px;
       padding: 1.15rem 1.15rem 1.25rem;
     }
+    /* SMCPKG_SUPPORT>>>Cursor003 */
+    .card + .card { margin-top: 0.9rem; }
+    /* SMCPKG_SUPPORT<<<Cursor003 */
     .card h3 {
       margin: 0 0 0.35rem;
       font-size: 1.25rem;
@@ -118,6 +124,17 @@
           <!-- SMCPKG_SUPPORT<<<Cursor001 -->
         </div>
       </article>
+      <!-- SMCPKG_SUPPORT>>>Cursor004 -->
+      <article class="card">
+        <h3>Go2Radio Live</h3>
+        <p>An Android internet radio and podcast player. Station lists come from Radio-Browser, and podcasts from public Apple charts. Audio streams from the broadcaster or podcast host.</p>
+        <p class="zh" style="color:var(--muted)">Android 網路收音機與 Podcast 播放器。電台列表來自 Radio-Browser，Podcast 來自公開的 Apple 排行，音訊由電台或節目來源串流。</p>
+        <p class="pkg">com.apsmkimo.go2radiolive</p>
+        <div class="actions">
+          <a class="btn btn-ghost" href="privacy-go2radio.html">Privacy policy <span class="zh">隱私權政策</span></a>
+        </div>
+      </article>
+      <!-- SMCPKG_SUPPORT<<<Cursor004 -->
     </main>
 
     <footer>

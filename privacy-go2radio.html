@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy policy for Go2Radio Live by A.P.S.Mobile. Effective 2026-10-19.">
-  <title>Privacy policy — Go2Radio Live</title>
+  <!-- SMCPKG_SUPPORT>>>Cursor013 -->
+  <!-- <meta name="description" content="Privacy policy for Go2Radio Live by A.P.S.Mobile. Effective 2026-10-19."> -->
+  <!-- <title>Privacy policy — Go2Radio Live</title> -->
+  <meta name="description" content="Privacy policy for Radio Live FM AM by A.P.S.Mobile. Effective 2026-10-21.">
+  <title>Privacy policy — Radio Live FM AM</title>
+  <!-- SMCPKG_SUPPORT<<<Cursor013 -->
   <style>
     :root {
       color-scheme: light;
@@ -55,11 +59,17 @@
   <div class="wrap">
     <a class="back" href="index.html">apsmkimo</a>
     <h1>Privacy policy</h1>
-    <p class="meta">Go2Radio Live · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-19</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor014 -->
+    <!-- <p class="meta">Go2Radio Live · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-19</p> -->
+    <p class="meta">Radio Live FM AM · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-21</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor014 -->
 
     <!-- SMCPKG_SUPPORT>>>Cursor005 -->
     <!-- <p>This policy describes how the Android app Go2Radio Live, published by A.P.S.Mobile (Wayne Tseng), handles information. It reflects the app as implemented in the <a href="https://github.com/apsmkimo/Go2radiolive-android">Go2radiolive-android</a> source: an internet radio and podcast player. Station catalogs come from the Radio-Browser API. Podcast catalogs come from public Apple charts, an iTunes lookup, and the podcast’s own RSS feed. Audio is then streamed from the third-party broadcaster or podcast host named in that catalog. The app shows Google AdMob banner and native ads only after Google’s consent check allows them.</p> -->
-    <p>This policy describes how the Android app Go2Radio Live, published by A.P.S.Mobile (Wayne Tseng), handles information. It reflects the app as implemented in the <a href="https://github.com/apsmkimo/Go2radiolive-android">Go2radiolive-android</a> source (version 1.5.0): an internet radio and podcast player. Station catalogs come from the Radio-Browser API. Podcast catalogs come from public Apple charts, an iTunes lookup, and the podcast’s own RSS feed. Audio is then streamed from the third-party broadcaster or podcast host named in that catalog. The app shows Google AdMob banner, native, and app-open ads only after Google’s consent check allows them.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor015 -->
+    <!-- <p>This policy describes how the Android app Go2Radio Live, published by A.P.S.Mobile (Wayne Tseng), handles information. It reflects the app as implemented in the <a href="https://github.com/apsmkimo/Go2radiolive-android">Go2radiolive-android</a> source (version 1.5.0): an internet radio and podcast player. Station catalogs come from the Radio-Browser API. Podcast catalogs come from public Apple charts, an iTunes lookup, and the podcast’s own RSS feed. Audio is then streamed from the third-party broadcaster or podcast host named in that catalog. The app shows Google AdMob banner, native, and app-open ads only after Google’s consent check allows them.</p> -->
+    <p>This policy describes how the Android app Radio Live FM AM, published by A.P.S.Mobile (Wayne Tseng), handles information. This policy uses the product name Radio Live FM AM. The Android package and <code>applicationId</code> are unchanged: <code>com.apsmkimo.go2radiolive</code>. This is the same app previously described here as Go2Radio Live. It reflects the app as implemented in the <a href="https://github.com/apsmkimo/Go2radiolive-android">Go2radiolive-android</a> source (version 1.6.1): an internet radio and podcast player. Station catalogs come from the Radio-Browser API. Podcast catalogs come from public Apple charts, an iTunes lookup, and the podcast’s own RSS feed. Audio is then streamed from the third-party broadcaster or podcast host named in that catalog. The app shows Google AdMob banner, native, and app-open ads only after Google’s consent check allows them.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor015 -->
     <!-- SMCPKG_SUPPORT<<<Cursor005 -->
     <p>The app does not ask you to create an account. The developer does not collect personal data such as your name, email address, phone number, contacts, or precise location, and does not operate a server that receives data from the app.</p>
 
@@ -84,9 +94,15 @@
     <p>The podcast country you pick is stored under <code>go2radio_podcast_region</code> as a two-letter storefront code (<code>storefront</code>). Choosing Automatic removes that value, and the app uses the device region described below. The country search in that picker filters a list on the device and is not sent as a query.</p>
     <p>The wake-up alarm is stored under <code>go2radio_wake_alarm</code>: whether it is on, the hour and minute, the repeat days (an empty list means one time), the station to play, and a backup station. The last station you played is stored in the same file so the alarm can offer it. These are station records and a clock time, not an account. A one-time alarm turns itself off after it fires. Snooze waits ten minutes and keeps that station in the on-device alarm until it fires. The sleep timer (15, 30, 45, 60, or 90 minutes, a custom length from 1 to 240 minutes, or the end of the current podcast episode) is held in memory for the current session. It is not written to DataStore, and ending the app process clears it.</p>
     <!-- SMCPKG_SUPPORT<<<Cursor007 -->
+    <!-- SMCPKG_SUPPORT>>>Cursor016 -->
+    <p>The app also keeps the last successful podcast chart, including show names, artwork addresses, and RSS feed addresses, in <code>podcast_catalog.json</code> in the app’s private files. Category lists (rankings, topic counts, languages, and station lists) are kept the same way in <code>category_catalog.json</code>. A saved copy older than about twelve hours is refreshed in the background; a manual refresh asks for a new copy. These files are station and show catalogs, not an account or a listening history. Copies of catalog responses may also sit in the app’s HTTP cache. The developer does not receive these files.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor016 -->
     <!-- SMCPKG_SUPPORT>>>Cursor012 -->
     <!-- <p>The manifest allows Android backup (<code>allowBackup</code> is true) and the project does not add rules that exclude these DataStore files, so a device backup or transfer may include them. Uninstalling the app removes them from the device. The developer does not receive them.</p> -->
-    <p>The manifest allows Android backup (<code>allowBackup</code> is true) and the project does not add rules that exclude these DataStore files or the app-open SharedPreferences, so a device backup or transfer may include them. Uninstalling the app removes them from the device. The developer does not receive them.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor021 -->
+    <!-- <p>The manifest allows Android backup (<code>allowBackup</code> is true) and the project does not add rules that exclude these DataStore files or the app-open SharedPreferences, so a device backup or transfer may include them. Uninstalling the app removes them from the device. The developer does not receive them.</p> -->
+    <p>The manifest allows Android backup (<code>allowBackup</code> is true) and the project does not add rules that exclude these DataStore files, the catalog JSON files, or the app-open SharedPreferences, so a device backup or transfer may include them. Uninstalling the app removes them from the device. The developer does not receive them.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor021 -->
     <!-- SMCPKG_SUPPORT<<<Cursor012 -->
 
     <h2>Advertising (Google AdMob)</h2>
@@ -112,7 +128,10 @@
     <p>When UMP reports that privacy options are required, Settings shows <strong>Privacy options</strong>. That row opens Google’s privacy-options form so you can change your ads choice. The row is hidden when UMP does not require it.</p>
 
     <h2>Radio stations (Radio-Browser)</h2>
-    <p>Station, country, and tag lists come from the public Radio-Browser API at <code>https://de1.api.radio-browser.info/</code>. Requests send a User-Agent that names the app and its version. The app asks for stations by country code, the country list, tags, and stations by tag. When you play a station, the app calls Radio-Browser’s URL endpoint for that station id. That call counts a click with Radio-Browser and returns a stream address; if it fails, playback uses the stream address already included with the station. The stream itself is served by the broadcaster, not by the developer. A station icon, when one is listed, is loaded from the image address in the catalog.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor017 -->
+    <!-- <p>Station, country, and tag lists come from the public Radio-Browser API at <code>https://de1.api.radio-browser.info/</code>. Requests send a User-Agent that names the app and its version. The app asks for stations by country code, the country list, tags, and stations by tag. When you play a station, the app calls Radio-Browser’s URL endpoint for that station id. That call counts a click with Radio-Browser and returns a stream address; if it fails, playback uses the stream address already included with the station. The stream itself is served by the broadcaster, not by the developer. A station icon, when one is listed, is loaded from the image address in the catalog.</p> -->
+    <p>Station, country, and tag lists come from the public Radio-Browser API at <code>https://de1.api.radio-browser.info/</code>. Requests send the User-Agent <code>Go2RadioLive/1.6.1</code>. That string is the app’s network identifier and version in the 1.6.1 source. It is not the name shown for Radio Live FM AM. The local and world lists ask for up to 500 stations in a country, ordered by clicks. The category tab can also ask Radio-Browser for rankings, a language, or a minimum bitrate when you choose those filters. The category country you pick is for the current session and is not saved as a setting; the stations returned for it may be cached on the device, as described above. The search box still filters only the list already on screen. When you play a station, the app calls Radio-Browser’s URL endpoint for that station id. That call counts a click with Radio-Browser and returns a stream address; if it fails, playback uses the stream address already included with the station. The stream itself is served by the broadcaster, not by the developer. A station icon, when one is listed, is loaded from the image address in the catalog.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor017 -->
 
     <h2>Podcasts</h2>
     <!-- SMCPKG_SUPPORT>>>Cursor010 -->
@@ -131,7 +150,10 @@
     <p>The developer does not sell personal information. The app does not include a separate analytics or crash-reporting SDK. Services the app does contact are Google AdMob, Google UMP, the Radio-Browser API, Apple’s chart and iTunes lookup endpoints, podcast RSS hosts, radio and podcast stream hosts, and image hosts for station or show artwork. Those parties receive the network request (including your IP address and the app’s User-Agent) under their own policies. Google’s policies are linked above. The developer does not control that processing.</p>
 
     <h2>Children</h2>
-    <p>Go2Radio Live is a general-audience app for internet radio and podcasts. It is not directed at children under 13, and the developer does not knowingly collect personal information from children.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor018 -->
+    <!-- <p>Go2Radio Live is a general-audience app for internet radio and podcasts. It is not directed at children under 13, and the developer does not knowingly collect personal information from children.</p> -->
+    <p>Radio Live FM AM is a general-audience app for internet radio and podcasts. It is not directed at children under 13, and the developer does not knowingly collect personal information from children.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor018 -->
 
     <h2>Changes</h2>
     <p>If this policy changes, the updated text will be posted on this page with a new effective date.</p>

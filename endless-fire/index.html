@@ -61,8 +61,10 @@
         var FS = {
           advect:
             "uniform sampler2D uVel,uSrc;uniform vec2 velTexel;uniform float dt,decay,cool;" +
-            "void main(){vec2 c=vUv-dt*texture2D(uVel,vUv).xy*velTexel;vec4 r=texture2D(uSrc,c)/(1.+dt*decay);" +
-            "if(cool>0.){r.x=max(r.x-dt*cool,0.);r.y=max(r.y-dt*cool*.12,0.);}gl_FragColor=r;}",
+            "void main(){vec2 c=vUv-dt*texture2D(uVel,vUv).xy*velTexel;vec4 r=texture2D(uSrc,c);" +
+            // fire: x=temperature (radiative-like nonlinear cooling), y=smoke, z=fuel (fast dissipation)
+            "if(cool>0.){r.x=max(r.x-dt*(cool*r.x*r.x+1.3*r.x+.14),0.);r.y/=1.+dt*.8;r.z/=1.+dt*decay;}" +
+            "else r/=1.+dt*decay;gl_FragColor=r;}",
           curl:
             "uniform sampler2D uVel;void main(){float L=texture2D(uVel,vL).y,R=texture2D(uVel,vR).y," +
             "T=texture2D(uVel,vT).x,B=texture2D(uVel,vB).x;gl_FragColor=vec4(.5*(R-L-T+B),0.,0.,1.);}",
@@ -73,19 +75,23 @@
             "vec2 v=texture2D(uVel,vUv).xy+f*dt;gl_FragColor=vec4(clamp(v,-1000.,1000.),0.,1.);}",
           buoy:
             NOISE +
-            "uniform sampler2D uVel,uFire;uniform float dt,time,buoy,turb,aspect;void main(){" +
+            "uniform sampler2D uVel,uFire;uniform float dt,time,buoy,turb,aspect;" +
+            "float psi(vec2 p){return vn(p+vec2(0.,-time*3.))+.55*vn(p*2.13+vec2(5.3,-time*6.5))+.3*vn(p*4.37+vec2(1.7-time*1.3,-time*11.));}" +
+            "void main(){" +
             "vec2 v=texture2D(uVel,vUv).xy;vec4 f=texture2D(uFire,vUv);float t=f.x;" +
-            "float n=vn(vec2(vUv.x*aspect*9.+3.,vUv.y*7.-time*2.6))-.5;" +
-            "float m=vn(vec2(vUv.x*aspect*5.-time*.7,vUv.y*3.-time*1.4))-.5;" +
-            "v.y+=dt*(buoy*t-buoy*.06*f.y);v.x+=dt*turb*t*(n+.8*m);" +
+            // divergence-free curl-noise force: (dpsi/dy, -dpsi/dx), stronger where hot
+            "vec2 p=vec2(vUv.x*aspect,vUv.y)*13.;float e=.04;" +
+            "vec2 cn=vec2(psi(p+vec2(0.,e))-psi(p-vec2(0.,e)),psi(p-vec2(e,0.))-psi(p+vec2(e,0.)))/(2.*e);" +
+            "v.y+=dt*(buoy*t-buoy*.05*f.y);v+=dt*turb*(.12+t)*cn;" +
             "gl_FragColor=vec4(v,0.,1.);}",
           source:
             NOISE +
             "uniform sampler2D uTex;uniform float dt,time,aspect;void main(){vec4 f=texture2D(uTex,vUv);" +
-            "float x=vUv.x*aspect;float n=fbm(vec2(x*5.5,time*1.4))*.65+vn(vec2(x*17.,time*4.))*.35;" +
-            "float flick=smoothstep(.32,.8,n)*(.75+.25*sin(time*9.+x*3.));" +
-            "float band=exp(-vUv.y*vUv.y/.0012);float heat=band*(.25+1.75*flick);" +
-            "f.x=min(f.x+dt*heat*7.,1.7);f.y=min(f.y+dt*band*flick*1.2,1.5);gl_FragColor=f;}",
+            "float x=vUv.x*aspect;float n=fbm(vec2(x*9.,time*2.2))*.6+vn(vec2(x*26.,time*6.))*.4;" +
+            "float clump=smoothstep(.48,.76,n)*(.55+.45*vn(vec2(x*5.,time*12.)));" +
+            // bottom emits fuel in narrow flickering clumps; combustion turns fuel into heat
+            "float band=exp(-vUv.y*vUv.y/.0006);f.z=min(f.z+dt*band*clump*16.,1.);" +
+            "float burn=min(f.z,3.5*dt);f.z-=burn;f.x=min(f.x+burn*6.5,2.);f.y=min(f.y+burn*.2,1.);gl_FragColor=f;}",
           div:
             "uniform sampler2D uVel;void main(){vec2 C=texture2D(uVel,vUv).xy;" +
             "float L=texture2D(uVel,vL).x,R=texture2D(uVel,vR).x,T=texture2D(uVel,vT).y,B=texture2D(uVel,vB).y;" +
@@ -102,17 +108,23 @@
             "uniform sampler2D uTex;uniform vec2 point;uniform vec3 color;uniform float radius,aspect;void main(){" +
             "vec2 p=vUv-point;p.x*=aspect;gl_FragColor=vec4(texture2D(uTex,vUv).xyz+exp(-dot(p,p)/radius)*color,1.);}",
           display:
-            "uniform sampler2D uFire;uniform vec2 res;" +
+            "uniform sampler2D uFire;uniform float aspect;" +
             "vec3 bb(float t){vec3 c=vec3(0.);" +
-            "c=mix(c,vec3(.32,.015,.0),smoothstep(.03,.18,t));" +
-            "c=mix(c,vec3(.85,.16,.01),smoothstep(.15,.42,t));" +
-            "c=mix(c,vec3(1.,.48,.05),smoothstep(.38,.68,t));" +
-            "c=mix(c,vec3(1.,.8,.3),smoothstep(.62,.98,t));" +
-            "c=mix(c,vec3(1.,.97,.86),smoothstep(.95,1.4,t));return c;}" +
-            "void main(){vec4 f=texture2D(uFire,vUv);float t=f.x;vec3 c=bb(t)*1.15;" +
-            "float s=clamp(f.y*.5,0.,.6)*(1.-smoothstep(.02,.3,t))*smoothstep(.02,.25,vUv.y);" +
-            "c+=vec3(.075,.068,.062)*s;" +
-            "c+=vec3(.05,.008,0.)*smoothstep(.25,0.,vUv.y);" +
+            "c=mix(c,vec3(.3,.012,.0),smoothstep(.01,.07,t));" +
+            "c=mix(c,vec3(.9,.17,.01),smoothstep(.06,.22,t));" +
+            "c=mix(c,vec3(1.,.5,.06),smoothstep(.2,.5,t));" +
+            "c=mix(c,vec3(1.,.82,.34),smoothstep(.45,.95,t));" +
+            "c=mix(c,vec3(1.,.97,.88),smoothstep(.9,1.9,t));return c;}" +
+            "float em(float t){return pow(max(t,0.),1.8)*smoothstep(.12,.34,t);}" +
+            "void main(){vec4 f=texture2D(uFire,vUv);float t=f.x;" +
+            "float e=em(t)*(1.+.4*smoothstep(.22,0.,vUv.y));vec3 c=bb(e)*1.25;" +
+            // cheap additive glow: two rings of six taps
+            "float g=0.;for(int i=0;i<6;i++){float a=float(i)*1.0472;vec2 d=vec2(cos(a)/aspect,sin(a));" +
+            "vec2 d2=vec2(cos(a+.5236)/aspect,sin(a+.5236));" +
+            "g+=em(texture2D(uFire,vUv+d*.016).x)+.6*em(texture2D(uFire,vUv+d2*.04).x);}" +
+            "c+=vec3(1.,.36,.06)*g*.035;" +
+            "float s=clamp(f.y*.4,0.,.4)*(1.-smoothstep(.05,.3,t))*smoothstep(.02,.2,vUv.y);" +
+            "c+=vec3(.03)*s;" +
             "c=1.-exp(-c*1.6);" +
             "c+=(fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453)-.5)/255.;" +
             "gl_FragColor=vec4(c,1.);}"
@@ -174,7 +186,7 @@
           };
         }
 
-        var SIM = 128, FIRE = 320;
+        var SIM = 144, FIRE = 400;
         var vel, fire, pres, divg, curlT, simW, simH, aspect = 1;
         function grid(base) {
           var a = canvas.width / canvas.height;
@@ -185,7 +197,7 @@
           var w = Math.max(1, Math.floor(window.innerWidth * dpr)), h = Math.max(1, Math.floor(window.innerHeight * dpr));
           if (w === canvas.width && h === canvas.height && vel) return;
           canvas.width = w; canvas.height = h; aspect = w / h;
-          var s = grid(SIM), f = grid(Math.min(FIRE, Math.max(SIM, Math.min(w, h) >> 1)));
+          var s = grid(SIM), f = grid(Math.min(FIRE, Math.max(SIM, Math.round(Math.min(w, h) * 0.6))));
           if (vel) [vel, fire, pres, divg, curlT].forEach(function (x) { x.free(); });
           simW = s[0]; simH = s[1];
           vel = dbl(simW, simH); pres = dbl(simW, simH);
@@ -229,14 +241,14 @@
         document.addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });
 
         function splat(x, y, dx, dy) {
-          var k = 42, cap = 900;
+          var k = 56, cap = 1100;
           var vx = Math.max(-cap, Math.min(cap, dx * simW * k));
           var vy = Math.max(-cap, Math.min(cap, dy * simH * k));
           var u = prog("splat");
           gl.uniform1i(u.uTex, vel.r.use(0));
           gl.uniform2f(u.point, x, y);
           gl.uniform3f(u.color, vx, vy, 0);
-          gl.uniform1f(u.radius, 0.0022);
+          gl.uniform1f(u.radius, 0.0008);
           gl.uniform1f(u.aspect, aspect);
           blit(vel.w); vel.swap();
         }
@@ -250,13 +262,13 @@
 
           u = prog("vort");
           gl.uniform1i(u.uVel, vel.r.use(0)); gl.uniform1i(u.uCurl, curlT.use(1));
-          gl.uniform1f(u.curl, 22); gl.uniform1f(u.dt, dt);
+          gl.uniform1f(u.curl, 40); gl.uniform1f(u.dt, dt);
           blit(vel.w); vel.swap();
 
           u = prog("buoy");
           gl.uniform1i(u.uVel, vel.r.use(0)); gl.uniform1i(u.uFire, fire.r.use(1));
           gl.uniform1f(u.dt, dt); gl.uniform1f(u.time, time);
-          gl.uniform1f(u.buoy, 150 * scale); gl.uniform1f(u.turb, 260 * scale); gl.uniform1f(u.aspect, aspect);
+          gl.uniform1f(u.buoy, 270 * scale); gl.uniform1f(u.turb, 90 * scale); gl.uniform1f(u.aspect, aspect);
           blit(vel.w); vel.swap();
 
           while (splats.length) { var s = splats.shift(); splat(s[0], s[1], s[2], s[3]); }
@@ -276,13 +288,13 @@
           u = prog("advect");
           gl.uniform2fv(u.velTexel, vel.r.tx); gl.uniform1f(u.dt, dt);
           gl.uniform1i(u.uVel, vel.r.use(0)); gl.uniform1i(u.uSrc, vel.r.use(0));
-          gl.uniform1f(u.decay, 0.25); gl.uniform1f(u.cool, 0);
+          gl.uniform1f(u.decay, 0.16); gl.uniform1f(u.cool, 0);
           blit(vel.w); vel.swap();
 
           u = prog("advect", fire.r.tx);
           gl.uniform2fv(u.velTexel, vel.r.tx); gl.uniform1f(u.dt, dt);
           gl.uniform1i(u.uVel, vel.r.use(0)); gl.uniform1i(u.uSrc, fire.r.use(1));
-          gl.uniform1f(u.decay, 0.55); gl.uniform1f(u.cool, 0.32);
+          gl.uniform1f(u.decay, 2.5); gl.uniform1f(u.cool, 4.5); // decay = fuel dissipation
           blit(fire.w); fire.swap();
 
           u = prog("source", fire.r.tx);
@@ -299,7 +311,7 @@
           if (!running) return;
           step(dt);
           var u = prog("display");
-          gl.uniform1i(u.uFire, fire.r.use(0));
+          gl.uniform1i(u.uFire, fire.r.use(0)); gl.uniform1f(u.aspect, aspect);
           blit(null);
           requestAnimationFrame(frame);
         }

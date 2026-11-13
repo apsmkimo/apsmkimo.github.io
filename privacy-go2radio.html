@@ -8,7 +8,10 @@
   <!-- <title>Privacy policy — Go2Radio Live</title> -->
   <!-- SMCPKG_SUPPORT>>>Cursor022 -->
   <!-- <meta name="description" content="Privacy policy for Radio Live FM AM by A.P.S.Mobile. Effective 2026-10-21."> -->
-  <meta name="description" content="Privacy policy for Radio Live FM AM by A.P.S.Mobile. Effective 2026-10-22.">
+  <!-- SMCPKG_SUPPORT>>>Cursor029 -->
+  <!-- <meta name="description" content="Privacy policy for Radio Live FM AM by A.P.S.Mobile. Effective 2026-10-22."> -->
+  <meta name="description" content="Privacy policy for Radio Live FM AM by A.P.S.Mobile. Effective 2026-11-13.">
+  <!-- SMCPKG_SUPPORT<<<Cursor029 -->
   <!-- SMCPKG_SUPPORT<<<Cursor022 -->
   <title>Privacy policy — Radio Live FM AM</title>
   <!-- SMCPKG_SUPPORT<<<Cursor013 -->
@@ -69,7 +72,10 @@
     <!-- <p class="meta">Go2Radio Live · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-19</p> -->
     <!-- SMCPKG_SUPPORT>>>Cursor023 -->
     <!-- <p class="meta">Radio Live FM AM · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-21</p> -->
-    <p class="meta">Radio Live FM AM · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-22</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor030 -->
+    <!-- <p class="meta">Radio Live FM AM · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-10-22</p> -->
+    <p class="meta">Radio Live FM AM · package <code>com.apsmkimo.go2radiolive</code><br>Developer: A.P.S.Mobile / Wayne Tseng<br>Effective date: 2026-11-13</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor030 -->
     <!-- SMCPKG_SUPPORT<<<Cursor023 -->
     <!-- SMCPKG_SUPPORT<<<Cursor014 -->
 
@@ -120,8 +126,14 @@
     <p>The app shows ads through the Google Mobile Ads SDK, dependency <code>com.google.android.gms:play-services-ads</code>. It can show an anchored adaptive banner, a native ad about every eight rows in the local station list, the world station list (including a search of that list), and the podcast list, and an app-open ad. It does not show interstitial ads. App measurement is delayed until the SDK is initialized, and <code>MobileAds.initialize</code> runs only when Google’s consent check says ads may be requested. If that check is false, or a native ad fails to load, the list does not leave an empty ad slot.</p>
     <p>An app-open ad can appear on a cold start, if it finishes loading within about four seconds after consent and Mobile Ads initialization, and when you return to the app from the background. It is not shown while radio or podcast audio is playing or buffering, while the consent form is open, or over another full-screen ad. A loaded app-open ad expires after four hours, and the app waits at least four hours between shows. The time the last app-open ad was shown is stored on the device in SharedPreferences (<code>go2radio_app_open</code>). Starting a wake-up alarm skips the next app-open ad. The developer does not receive that timestamp.</p>
     <!-- SMCPKG_SUPPORT<<<Cursor008 -->
-    <p>Google AdMob, as part of serving and measuring ads, collects device identifiers, including the advertising ID, along with other data described in Google’s policies. The app source does not read the advertising ID itself.</p>
-    <p>You can limit ad personalization in your device settings (Google Settings → Ads, or reset your advertising ID). How Google uses this information is covered by:</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor031 -->
+    <!-- <p>Google AdMob, as part of serving and measuring ads, collects device identifiers, including the advertising ID, along with other data described in Google’s policies. The app source does not read the advertising ID itself.</p> -->
+    <p>The app uses Google AdMob and the Google User Messaging Platform (UMP) consent form. AdMob may collect device identifiers such as the advertising ID, ad interaction data (impressions and clicks), diagnostic and crash data, and approximate location derived from the IP address. It sends this data off the device, uses it for advertising, analytics, and fraud prevention, and shares it with Google. The app source does not read the advertising ID itself. <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a> describes that processing.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor031 -->
+    <!-- SMCPKG_SUPPORT>>>Cursor032 -->
+    <!-- <p>You can limit ad personalization in your device settings (Google Settings → Ads, or reset your advertising ID). How Google uses this information is covered by:</p> -->
+    <p>You can reset or delete your advertising ID in Android settings (Settings → Google → Ads, or Privacy → Ads). Ad consent choices are described under Ads consent below. How Google uses this information is covered by:</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor032 -->
     <ul>
       <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
       <li><a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a></li>
@@ -132,14 +144,24 @@
     <h2>Ads consent (Google UMP)</h2>
     <!-- SMCPKG_SUPPORT>>>Cursor009 -->
     <!-- <p>On each launch the app updates consent with the Google User Messaging Platform (UMP). UMP decides whether a consent form is required. That includes the form Google shows for GDPR in the EEA and the UK. The request is not tagged for a user under the age of consent. Banner and native ads load only when UMP reports that the app can request ads.</p> -->
-    <p>On each launch the app updates consent with the Google User Messaging Platform (UMP). UMP decides whether a consent form is required. That includes the form Google shows for GDPR in the EEA and the UK. The request is not tagged for a user under the age of consent. Banner, native, and app-open ads load only when UMP reports that the app can request ads.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor033 -->
+    <!-- <p>On each launch the app updates consent with the Google User Messaging Platform (UMP). UMP decides whether a consent form is required. That includes the form Google shows for GDPR in the EEA and the UK. The request is not tagged for a user under the age of consent. Banner, native, and app-open ads load only when UMP reports that the app can request ads.</p> -->
+    <p>On each launch the app updates consent with the Google User Messaging Platform (UMP). The request is not tagged for a user under the age of consent. Banner, native, and app-open ads load only when UMP reports that the app can request ads.</p>
+    <p>Users in the EEA, the UK, and Switzerland see a Google consent form (UMP, GDPR/TCF) before personalized ads are shown. They can change or withdraw that choice at any time from in-app Settings &gt; 隱私選項 (privacy options). That row is shown only where UMP requires it. Users in other regions can opt out of personalized ads in their Android settings.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor033 -->
     <!-- SMCPKG_SUPPORT<<<Cursor009 -->
-    <p>When UMP reports that privacy options are required, Settings shows <strong>Privacy options</strong>. That row opens Google’s privacy-options form so you can change your ads choice. The row is hidden when UMP does not require it.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor034 -->
+    <!-- <p>When UMP reports that privacy options are required, Settings shows <strong>Privacy options</strong>. That row opens Google’s privacy-options form so you can change your ads choice. The row is hidden when UMP does not require it.</p> -->
+    <!-- SMCPKG_SUPPORT<<<Cursor034 -->
 
     <!-- SMCPKG_SUPPORT>>>Cursor024 -->
     <h2>Purchases (Google Play Billing)</h2>
-    <p>Remove ads is an optional one-time in-app purchase. Purchases are processed by Google Play. The developer does not receive or store payment card details. The app only checks with Google Play whether the Remove ads purchase is owned, and stores that ownership status on the device. <a href="https://policies.google.com/privacy">Google’s privacy policy</a> applies to the payment.</p>
-    <p>When the Remove ads purchase is owned, ads and ad consent prompts are not shown.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor035 -->
+    <!-- <p>Remove ads is an optional one-time in-app purchase. Purchases are processed by Google Play. The developer does not receive or store payment card details. The app only checks with Google Play whether the Remove ads purchase is owned, and stores that ownership status on the device. <a href="https://policies.google.com/privacy">Google’s privacy policy</a> applies to the payment.</p> -->
+    <!-- <p>When the Remove ads purchase is owned, ads and ad consent prompts are not shown.</p> -->
+    <p>Remove ads is an optional one-time in-app purchase processed by Google Play Billing. The app does not store payment details. It only checks with Google Play whether the Remove ads purchase is owned, and stores that ownership status on the device. <a href="https://policies.google.com/privacy">Google’s privacy policy</a> applies to the payment.</p>
+    <p>After the purchase, the app stops loading ads, and the related ad data collection stops. Ad consent prompts are not shown.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor035 -->
     <!-- SMCPKG_SUPPORT<<<Cursor024 -->
 
     <h2>Radio stations (Radio-Browser)</h2>
@@ -164,8 +186,16 @@
     <h2>Third parties</h2>
     <!-- SMCPKG_SUPPORT>>>Cursor025 -->
     <!-- <p>The developer does not sell personal information. The app does not include a separate analytics or crash-reporting SDK. Services the app does contact are Google AdMob, Google UMP, the Radio-Browser API, Apple’s chart and iTunes lookup endpoints, podcast RSS hosts, radio and podcast stream hosts, and image hosts for station or show artwork. Those parties receive the network request (including your IP address and the app’s User-Agent) under their own policies. Google’s policies are linked above. The developer does not control that processing.</p> -->
-    <p>The developer does not sell personal information. The app does not include a separate analytics or crash-reporting SDK. Services the app does contact are Google Play Billing, Google AdMob, Google UMP, the Radio-Browser API, Apple’s chart and iTunes lookup endpoints, podcast RSS hosts, radio and podcast stream hosts, and image hosts for station or show artwork. Those parties receive the network request (including your IP address and the app’s User-Agent) under their own policies. Google’s policies are linked above. The developer does not control that processing.</p>
+    <!-- SMCPKG_SUPPORT>>>Cursor036 -->
+    <!-- <p>The developer does not sell personal information. The app does not include a separate analytics or crash-reporting SDK. Services the app does contact are Google Play Billing, Google AdMob, Google UMP, the Radio-Browser API, Apple’s chart and iTunes lookup endpoints, podcast RSS hosts, radio and podcast stream hosts, and image hosts for station or show artwork. Those parties receive the network request (including your IP address and the app’s User-Agent) under their own policies. Google’s policies are linked above. The developer does not control that processing.</p> -->
+    <p>The developer does not sell personal information. The app does not include a separate analytics or crash-reporting SDK. Diagnostic and crash data from ads is collected by Google AdMob, as described above. Services the app does contact are Google Play Billing, Google AdMob, Google UMP, the Radio-Browser API, Apple’s chart and iTunes lookup endpoints, podcast RSS hosts, radio and podcast stream hosts, and image hosts for station or show artwork. Those parties receive the network request (including your IP address and the app’s User-Agent) under their own policies. Google’s policies are linked above. The developer does not control that processing.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor036 -->
     <!-- SMCPKG_SUPPORT<<<Cursor025 -->
+
+    <!-- SMCPKG_SUPPORT>>>Cursor037 -->
+    <h2>Security</h2>
+    <p>All data is encrypted in transit.</p>
+    <!-- SMCPKG_SUPPORT<<<Cursor037 -->
 
     <h2>Children</h2>
     <!-- SMCPKG_SUPPORT>>>Cursor018 -->
